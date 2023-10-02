@@ -5,7 +5,7 @@ import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 import { LuFilter } from "react-icons/lu";
 import { context } from '../../Context/AuthContex';
-// import second from '../../../public/hotels.json'
+
 const Catagories = () => {
 
     const {setHotel} = useContext(context)
@@ -21,7 +21,7 @@ const Catagories = () => {
 
 
     const handleCatagory = (id) => {
-
+console.log(id)
 
         fetch(`https://room-booking-server.vercel.app/hotels/${id}`)
         .then(res => res.json())

@@ -23,7 +23,7 @@ const SearchBox = () => {
 
     const checkIn = `${selectedDateIn.getDate()} - ${selectedDateIn.getMonth()} - ${selectedDateIn.getFullYear()}`
     const checkOut = `${selectedDateOut.getDate()} - ${selectedDateOut.getMonth()} - ${selectedDateOut.getFullYear()}`
-    console.log(checkOut)
+    // console.log(checkOut)
 
     // Function to handle date selection
     const handleDateChangeOut = (date) => {
@@ -67,12 +67,18 @@ const SearchBox = () => {
         }
     }
 
+
+    const handleSearch = (e)=>{
+        e.preventDefault();
+console.log(e.target.place.value)
+    }
+
     return (
-        <div className=' w-full pb-5 md:w-4/6 mx-auto'>
-            <div className='flex flex-col md:flex-row border md:shadow-md shadow-sm border-gray-300 opacity-95 rounded-2xl mx-5 md:rounded-full   bg-opacity-60'>
+        <div  className=' w-full pb-5 md:w-4/6 mx-auto'>
+            <form onSubmit={handleSearch} className='flex flex-col md:flex-row pr-10 border md:shadow-md shadow-sm border-gray-300 opacity-95 rounded-2xl mx-5 md:rounded-full   bg-opacity-60'>
                 <div className='flex flex-col px-7 py-3 rounded-l-full w-full  md:w-80 '>
                     <label>Where</label>
-                    <input type="text" className='outline-none' placeholder='Search destinations' />
+                    <input type="text" name='place' className='outline-none' placeholder='Search destinations' />
 
                 </div>
                 <div className='border md:visible hidden h-10 my-auto'></div>
@@ -91,20 +97,20 @@ const SearchBox = () => {
                 </div>
                 <div className='border h-10 my-auto'></div>
 
-                <div onClick={() => setIsShowGuest(!isShowGuest)} className='flex items-center'>
-                    <div className='flex flex-col px-7 py-3 rounded-l-full   w-48 '>
+                <div  className='flex  items-center'>
+                    <div onClick={() => setIsShowGuest(!isShowGuest)} className='flex flex-col px-7 py-3 rounded-l-full   w-48 '>
                         <label>Who</label>
                         <input type="text" className='outline-none' placeholder='Add guest' />
                     </div>
 
 
-                    <FiSearch className="text-white w-12 h-12 mr-3 rounded-full p-[14px] font-extrabold text-center   bg-[#FF385C] text-5xl " />
+                    <FiSearch className="text-white w-10 h-10 rounded-full p-[14px] font-extrabold text-center   bg-[#FF385C] text-5xl " />
 
 
                 </div>
 
 
-            </div>
+            </form>
 
 
 
