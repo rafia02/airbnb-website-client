@@ -1,15 +1,6 @@
-import React, { useState } from 'react'
+
 import { useLoaderData } from 'react-router-dom'
-import { BsPeople, BsSignNoParking } from "react-icons/bs";
-import { LiaBedSolid } from "react-icons/lia";
-import { PiHouseLineBold, PiCoatHanger, PiTelevisionSimpleLight } from "react-icons/pi";
-import { MdOutlineBathroom, MdAssuredWorkload, MdOutlineWaterDrop, MdSmokeFree } from "react-icons/md";
-import { AiOutlineCar, AiOutlineWifi } from "react-icons/ai";
-import { TbToolsKitchen2, TbAirConditioning } from "react-icons/tb";
-import { LuCalendarDays } from "react-icons/lu";
-import { CgSmartHomeRefrigerator } from "react-icons/cg";
-import { GiWashingMachine } from "react-icons/gi";
-import { TfiSpray } from "react-icons/tfi";
+
 
 
 const HotelDetails = () => {
