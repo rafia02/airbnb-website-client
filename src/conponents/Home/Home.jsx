@@ -1,10 +1,13 @@
 import React from 'react'
 import SearchBox from '../Shared/SearchBox'
+import Catagories from './Catagories'
+import Hotels from './Hotels'
 
 const Home = () => {
   return (
-    <div>
-     <h1>home</h1>
+    <div className='pt-10'>
+     <Catagories></Catagories>
+     <Hotels></Hotels>
     </div>
   )
 }

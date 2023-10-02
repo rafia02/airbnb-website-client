@@ -18,8 +18,8 @@ const manueBar = <>
 const Navber = () => {
     const [show, setShow] = useState(false)
     return (
-        <div>
-            <div className="navbar py-[22px] ">
+        <div className=' shadow-sm '>
+            <div className="navbar py-4">
                 <div className="navbar-start">
                     <div className="dropdown">
                         <label tabIndex={0} className="btn btn-ghost lg:hidden">
@@ -51,7 +51,7 @@ const Navber = () => {
                                 <div className="flex justify-between absolute w-full pr-16 pl-6 font-semibold text-gray-600">
                                     <button className="w-full">Place</button>
                                     <button className="border-l border-x px-6">Time</button>
-                                    <button className="w-full text-gray-600/60 pl-2">Group Size</button>
+                                    <button className="w-full text-gray-600/60 pl-2">Add guest</button>
                                 </div>
                                 <div className="bg-[#FF385C] p-2 rounded-full mr-2">
                                     <FiSearch className="text-white w-full" />
@@ -74,7 +74,7 @@ const Navber = () => {
             </div>
 
             {
-                show && <SearchBox className=""></SearchBox>
+                show && <SearchBox></SearchBox>
             }
         </div>
 
