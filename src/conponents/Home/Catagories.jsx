@@ -75,8 +75,9 @@ const Catagories = () => {
             </div>
 
             <div className='w-4/12 md:w-1/5 md:flex md:gap-2 justify-start items-center  '>
-                <button className='flex  gap-2 items-center border p-2 md:px-5 md:py-3 rounded-xl'>
+                <button  onClick={() => document.getElementById('my_modal_2').showModal()} className='flex  gap-2 items-center border p-2 md:px-5 md:py-3 rounded-xl'>
                     <LuFilter></LuFilter>
+                    {/* <button className="btn" >open modal</button> */}
                     <p className='text-sm font-semibold'>Filters</p>
                 </button>
                 <button className='md:flex hidden gap-2 items-center border px-3 py-3 rounded-xl'>
