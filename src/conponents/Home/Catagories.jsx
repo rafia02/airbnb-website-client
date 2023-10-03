@@ -13,7 +13,7 @@ const Catagories = () => {
     const { data: catagories = [], refetch } = useQuery({
         queryKey: ['catagories'],
         queryFn: async () => {
-            const res = await fetch('../../../public/catagories.json')
+            const res = await fetch('../../../catagories.json')
             const data = await res.json()
             return data
         }
