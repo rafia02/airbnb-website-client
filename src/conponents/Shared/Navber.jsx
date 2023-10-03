@@ -26,7 +26,7 @@ const navigete = useNavigate()
     }
     // const [show, setShow] = useState(false)
     return (
-        <div className=' shadow-sm '>
+        <div className=' shadow-sm md:m-5'>
             <div className="navbar py-4">
                 <div className="navbar-start">
                     <div className="dropdown">

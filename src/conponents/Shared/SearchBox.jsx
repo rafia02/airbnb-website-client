@@ -88,7 +88,7 @@ const totalGuest = adults + childrens
         <div>
             <div className='flex relative justify-center pb-5'>
                 <form onSubmit={handleSearch} className='flex flex-col md:flex-row '>
-                    <div className='flex flex-col px-7 py-3 border-l border-gray-400 border-y border-r md:border-r-0 rounded-md  md:rounded-l-full w-full  md:w-80  '>
+                    <div  className=' flex flex-col px-7 py-3 border-l border-gray-400 border-y border-r md:border-r-0 rounded-md  md:rounded-l-full w-full  md:w-80  '>
                         <label>Where</label>
                         <input type="text"  name='place' className='outline-none' placeholder='Search destinations' />
 
@@ -117,7 +117,7 @@ const totalGuest = adults + childrens
                                 <input type="text" value={totalGuest} className='outline-none' placeholder='Add guest' />
                             </div>
 
-                            <button type='submit' className='pr-7'>
+                            <button type='submit' className='pr-3'>
                                 <BiSearch className="text-white  w-10 h-10 rounded-full p-2 font-extrabold text-center   bg-[#FF385C] text-5xl "></BiSearch>
                             </button>
                             

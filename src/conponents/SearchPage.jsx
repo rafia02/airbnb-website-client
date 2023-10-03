@@ -6,9 +6,9 @@ import { useLoaderData } from 'react-router-dom';
 
 const SearchPage = () => {
   
-    const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
+    // const [ignored, forceUpdate] = useReducer(x => x + 1, 0);
     // const [data, setData] = useState([])
-    const [loading, setLoadign] = useState(true)
+    // const [loading, setLoadign] = useState(true)
 const data = useLoaderData()
     const {  total, country } = useContext(context)
 

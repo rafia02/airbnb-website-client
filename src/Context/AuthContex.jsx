@@ -12,6 +12,13 @@ const AuthContex = ({ children }) => {
     const [total, setTotal] = useState(0)
     const [country, setCountry] = useState("")
     const [show, setShow] = useState(false)
+
+    const [minValue, setMinValue] = useState(0);
+    const [maxValue, setMaxValue] = useState(500);
+    const [beds, setBeds] = useState("");
+    const [rooms, setRooms] = useState("");
+    const [baths, setBaths] = useState("");
+
     useEffect((id = "National parks") => {
         fetch(`https://room-booking-server.vercel.app/hotels/${id}`)
             .then(res => res.json())
@@ -20,7 +27,7 @@ const AuthContex = ({ children }) => {
     }, [])
 
 
-    const authInfo = { hotel, show, setShow, setHotel, country, setCountry, showOut, total, setTotal, childrens, setChildren, setShowOut, showIn, setShowIn, adults, setAdults }
+    const authInfo = { hotel, minValue, setMinValue, maxValue, setMaxValue, beds, setBeds, rooms, setRooms, baths, setBaths,  show, setShow, setHotel, country, setCountry, showOut, total, setTotal, childrens, setChildren, setShowOut, showIn, setShowIn, adults, setAdults }
     return (
         <div>
             <context.Provider value={authInfo}>

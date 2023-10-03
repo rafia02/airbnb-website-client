@@ -1,16 +1,18 @@
-import React, { useState } from 'react'
+import React, { useContext, useState } from 'react'
 import MultiRangeSlider from "multi-range-slider-react";
-import { NavLink } from 'react-router-dom';
+import { Link, NavLink } from 'react-router-dom';
 import "../../App.css"
+import { context } from '../../Context/AuthContex';
 
 
 const FilterModal = () => {
+    const { minValue, setMinValue, maxValue, setMaxValue, beds, setBeds, rooms, setRooms, baths, setBaths } = useContext(context)
     const [range, setRange] = useState("");
-    const [minValue, setMinValue] = useState(0);
-    const [maxValue, setMaxValue] = useState(500);
-    const [beds, setBeds] = useState("");
-    const [rooms, setRooms] = useState("");
-    const [baths, setBaths] = useState("");
+    // const [minValue, setMinValue] = useState(0);
+    // const [maxValue, setMaxValue] = useState(500);
+    // const [beds, setBeds] = useState("");
+    // const [rooms, setRooms] = useState("");
+    // const [baths, setBaths] = useState("");
 
     const handleRangeChange = (newRange) => {
         setRange(newRange);
@@ -24,15 +26,15 @@ const FilterModal = () => {
     const num = ["Any", 1, 2, 3, 4, 5, 6]
 
 
-console.log(rooms, beds, baths)
+    console.log(rooms, beds, baths)
 
-    
+
     return (
         <div>
-            {/* Open the modal using document.getElementById('ID').showModal() method */}
 
-            <dialog id="my_modal_2" className="modal">
-                <div className="modal-box text-gray-600">
+
+            <dialog id="my_modal_2" className="modal ">
+                <div className="modal-box  text-gray-600">
                     <div>
                         <h3 className="font-bold text-2xl">Type of place</h3>
                         <p className="pt-1 text-sm">A room in a home, plus access to shared spaces.</p>
@@ -76,10 +78,10 @@ console.log(rooms, beds, baths)
                             <p className="pt-8 text-lg font-semibold">Bedrooms</p>
                             <div className='flex gap-3 mt-5'>
 
-                                
+
 
                                 {
-                                    num.map(i => <div onClick={()=>setRooms(i)} className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">{i}</div>)
+                                    num.map(i => <button onClick={() => setRooms(i)} className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">{i}</button>)
                                 }
 
 
@@ -98,7 +100,7 @@ console.log(rooms, beds, baths)
                             <p className="pt-8 text-lg font-semibold">Beds</p>
                             <div className='flex gap-3 mt-5'>
                                 {
-                                    num.map(i => <button onClick={()=>setBeds(i)} className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">{i}</button>)
+                                    num.map(i => <button onClick={() => setBeds(i)} className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">{i}</button>)
                                 }
                             </div>
                         </div>
@@ -107,19 +109,26 @@ console.log(rooms, beds, baths)
                             <p className="pt-8 text-lg font-semibold">Bathrooms</p>
                             <div className='flex gap-3 mt-5'>
                                 {
-                                    num.map(i => <button onClick={()=>setBaths(i)} className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">{i}</button>
-                                   )
+                                    num.map(i => <button onClick={() => setBaths(i)} className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">{i}</button>
+                                    )
                                 }
                             </div>
                         </div>
                     </div>
 
+                    <div className='text-end mt-8 '>
+                        <Link to="/filter/hotel"  className='px-12 py-3 text-xl bg-black text-white font-bold rounded-xl hover:bg-gray-600  duration-500'>Search</Link>
+                    </div>
 
                 </div>
+
+
+
                 <form method="dialog" className="modal-backdrop">
                     <button>close</button>
                 </form>
             </dialog>
+
         </div>
     )
 }
