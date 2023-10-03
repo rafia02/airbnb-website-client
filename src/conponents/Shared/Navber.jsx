@@ -1,8 +1,9 @@
-import React, { useState } from 'react'
-import { Link } from 'react-router-dom';
+import React, { useContext, useState } from 'react'
+import { Link, useNavigate } from 'react-router-dom';
 import { BiWorld, BiUser } from "react-icons/bi";
 import { FiSearch } from "react-icons/fi";
 import SearchBox from './SearchBox';
+import { context } from '../../Context/AuthContex';
 
 
 
@@ -16,7 +17,14 @@ const manueBar = <>
 
 
 const Navber = () => {
-    const [show, setShow] = useState(false)
+    const {show, setShow} = useContext(context)
+const navigete = useNavigate()
+
+    const handleShow = ()=>{
+        setShow(!show)
+        navigete("/")
+    }
+    // const [show, setShow] = useState(false)
     return (
         <div className=' shadow-sm '>
             <div className="navbar py-4">
@@ -35,7 +43,7 @@ const Navber = () => {
                     </div>
                 </div>
 
-                <div onClick={() => setShow(!show)} className="navbar-center hidden lg:flex">
+                <div onClick={handleShow} className="navbar-center hidden lg:flex">
                     <ul className="menu menu-horizontal px-1">
                         {
                             show && manueBar

@@ -8,7 +8,7 @@ import { context } from '../../Context/AuthContex';
 
 const Catagories = () => {
 
-    const {setHotel} = useContext(context)
+    const { setHotel } = useContext(context)
 
     const { data: catagories = [], refetch } = useQuery({
         queryKey: ['catagories'],
@@ -21,14 +21,14 @@ const Catagories = () => {
 
 
     const handleCatagory = (id) => {
-console.log(id)
+        console.log(id)
 
         fetch(`https://room-booking-server.vercel.app/hotels/${id}`)
-        .then(res => res.json())
-        .then(data => setHotel(data))
-        .catch(e => console.error(e))
-    
-      }
+            .then(res => res.json())
+            .then(data => setHotel(data))
+            .catch(e => console.error(e))
+
+    }
 
 
     //   useEffect((id = "National parks") => {
@@ -54,13 +54,13 @@ console.log(id)
         },
         mobile: {
             breakpoint: { max: 464, min: 0 },
-            items: 3
+            items: 2
         }
     };
 
     return (
         <div className='flex'>
-            <div className='w-4/5'>
+            <div className='w-8/12 ml-5 md:w-4/5'>
                 <Carousel responsive={responsive}>
 
                     {
@@ -74,12 +74,12 @@ console.log(id)
                 </Carousel>
             </div>
 
-            <div className='w-1/5 flex gap-2 items-center  '>
-            <button className='flex  gap-2 items-center border px-5 py-3 rounded-xl'>
+            <div className='w-4/12 md:w-1/5 md:flex md:gap-2 justify-start items-center  '>
+                <button className='flex  gap-2 items-center border p-2 md:px-5 md:py-3 rounded-xl'>
                     <LuFilter></LuFilter>
                     <p className='text-sm font-semibold'>Filters</p>
                 </button>
-                <button className='flex  gap-2 items-center border px-5 py-3 rounded-xl'>
+                <button className='md:flex hidden gap-2 items-center border px-3 py-3 rounded-xl'>
                     <p className='text-sm font-semibold'>Total tax</p>
                     <input type="checkbox" className="toggle toggle-sm" />
                 </button>
