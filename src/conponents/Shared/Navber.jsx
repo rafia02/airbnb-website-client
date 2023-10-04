@@ -24,7 +24,7 @@ const navigete = useNavigate()
         setShow(!show)
         navigete("/")
     }
-    // const [show, setShow] = useState(false)
+
     return (
         <div className=' shadow-sm md:mx-4 md:py-2 '>
             <div className="navbar ">

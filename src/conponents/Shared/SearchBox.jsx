@@ -88,7 +88,7 @@ const totalGuest = adults + childrens
         <div>
             <div className='flex relative justify-center pb-5'>
                 <form onSubmit={handleSearch} className='flex flex-col md:flex-row '>
-                    <div  className=' flex flex-col px-7 py-3 border-l border-gray-400 border-y border-r md:border-r-0 rounded-md  md:rounded-l-full w-full  md:w-80  '>
+                    <div  className='flex flex-col px-7 py-3 border-l border-gray-400 border-y border-r md:border-r-0 rounded-md  md:rounded-l-full w-full  md:w-80  '>
                         <label>Where</label>
                         <input type="text"  name='place' className='outline-none' placeholder='Search destinations' />
 
@@ -97,14 +97,14 @@ const totalGuest = adults + childrens
 
                     <div onClick={() => setIsShowIn(!isShowIn)} className='flex border-gray-400 border-y  flex-col px-7 py-3    w-40 '>
                         <label>Check In</label>
-                        <input type="text" className='outline-none ' value={showIn} placeholder='Add date' />
+                        <input type="text" className='outline-none cursor-pointer' value={showIn} placeholder='Add date' />
                     </div>
                     <div className='border h-10 my-auto'></div>
 
 
                     <div onClick={() => setIsShowOut(!isShowOut)} className='flex border-gray-400 border-y  flex-col px-7 py-3    w-40 '>
                         <label>Check Out</label>
-                        <input type="text" className='outline-none' value={showOut} placeholder='Add date' />
+                        <input type="text" className='outline-none cursor-pointer' value={showOut} placeholder='Add date' />
 
                     </div>
                     <div className='border h-10 my-auto'></div>
@@ -114,7 +114,7 @@ const totalGuest = adults + childrens
                         <div className='flex  items-center'>
                             <div onClick={() => setIsShowGuest(!isShowGuest)} className='flex flex-col pl-7 py-3 rounded-l-full   '>
                                 <label>Guest</label>
-                                <input type="text" value={totalGuest} className='outline-none' placeholder='Add guest' />
+                                <input type="text" value={totalGuest} className='outline-none cursor-pointer' placeholder='Add guest' />
                             </div>
 
                             <button type='submit' className='pr-3'>
@@ -178,11 +178,11 @@ const totalGuest = adults + childrens
 
                                 <div className='flex items-center gap-5'>
                                     <div onClick={handleAdultsMinus}>
-                                        <BiMinus className='text-4xl p-[5px] border-gray-400 rounded-full font-semibold border'></BiMinus>
+                                        <BiMinus className='text-4xl cursor-pointer p-[5px] border-gray-400 rounded-full font-semibold border'></BiMinus>
                                     </div>
                                     <div className='text-lg font-semibold'>{adults}</div>
                                     <div onClick={handleAdultsPlus}>
-                                        <BsPlus className='text-4xl p-[5px] border-gray-400 rounded-full font-semibold border'></BsPlus>
+                                        <BsPlus className='text-4xl cursor-pointer p-[5px] border-gray-400 rounded-full font-semibold border'></BsPlus>
                                     </div>
                                 </div>
                             </div>
@@ -195,11 +195,11 @@ const totalGuest = adults + childrens
 
                                 <div className='flex items-center gap-5'>
                                     <div onClick={handleChildrenMinus}>
-                                        <BiMinus className='text-4xl p-[5px] border-gray-400 rounded-full font-semibold border'></BiMinus>
+                                        <BiMinus className='text-4xl cursor-pointer p-[5px] border-gray-400 rounded-full font-semibold border'></BiMinus>
                                     </div>
                                     <div className='text-lg font-semibold'>{childrens}</div>
                                     <div onClick={handleChildrenPlus}>
-                                        <BsPlus className='text-4xl p-[5px] border-gray-400 rounded-full font-semibold border'></BsPlus>
+                                        <BsPlus className='text-4xl p-[5px] cursor-pointer border-gray-400 rounded-full font-semibold border'></BsPlus>
                                     </div>
                                 </div>
                             </div>
