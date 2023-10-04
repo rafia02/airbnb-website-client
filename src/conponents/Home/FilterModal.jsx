@@ -16,6 +16,12 @@ const FilterModal = () => {
     const { minValue, setMinValue, maxValue, setMaxValue, beds, setBeds, rooms, setRooms, baths, setBaths } = useContext(context)
     const [range, setRange] = useState("");
 
+    const [type, setType] = useState([
+        { id: 1, selected: false, title: "Any Type" },
+        { id: 2, selected: false, title: "Room" },
+        { id: 3, selected: false, title: "Entire home" }
+    ])
+
     const [boxes, setBoxes] = useState([
         { id: 1, selected: false, title: "House", img: house, },
         { id: 2, selected: false, title: "Apartment", img: apartment },
@@ -63,15 +69,6 @@ const FilterModal = () => {
 
 
 
-
-
-
-
-
-
-
-
-
     const toggleBoxSelection = (id) => {
         console.log(id)
         setBoxes((prevBoxes) =>
@@ -89,20 +86,7 @@ const FilterModal = () => {
             )
         )
     }
-    // const toggleBed = (id, set) => {
-    //     set((prevBoxes) =>
-    //         prevBoxes.map((val) =>
-    //             val.id === id ? { ...val, selected: !val.selected } : { ...val, selected: false }
-    //         )
-    //     )
-    // }
-    // const toggleBath = (id, set) => {
-    //     set((prevBoxes) =>
-    //         prevBoxes.map((val) =>
-    //             val.id === id ? { ...val, selected: !val.selected } : { ...val, selected: false }
-    //         )
-    //     )
-    // }
+
 
 
     console.log(baths)
@@ -111,15 +95,28 @@ const FilterModal = () => {
 
 
             <dialog id="my_modal_2" className="modal ">
+
                 <div className="modal-box  text-gray-700">
+                    <form method="dialog" className="text-end text-xl  font-bold  hover:text-red-600">
+                        <button className='hover:bg-gray-200 duration-300 px-2 p-[1px] rounded-full'>X</button>
+                    </form>
                     <div>
                         <h3 className="font-bold text-2xl">Type of place</h3>
                         <p className="pt-1 text-sm">A room in a home, plus access to shared spaces.</p>
                     </div>
                     <div className='mt-8 mb-12'>
-                        <button className=" border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white font-bold py-3 px-9 rounded-l-xl">Any Type</button>
-                        <button className=" border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white font-bold py-3 px-9">Room</button>
-                        <button className=" border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white font-bold py-3 px-9 rounded-r-xl">Entire home</button>
+                        <div className='flex gap-3 mt-5'>
+                            {
+                                type.map(b =>
+                                    <div
+                                        className={` py-2 px-5 rounded-2xl border-gray-500  border hover:border-gray-500 duration-500 cursor-pointer ${b.selected ? 'bg-black' : 'bg-white'}`}
+                                        onClick={() => togglehangle(b.id, setType)}
+
+                                    >
+                                        <p className={`${b.selected ? 'text-white ' : 'text-black'}`}>{b.title} </p>
+                                    </div>)
+                            }
+                        </div>
                     </div>
                     <div>
                         <h3 className="font-bold text-2xl">Price range</h3>
@@ -226,7 +223,7 @@ const FilterModal = () => {
 
 
 
-                    <div className='text-end mt-8 '>
+                    <div className='text-end mt-14 '>
                         <Link to="/filter/hotel" className='px-12 py-3 text-xl bg-black text-white font-bold rounded-xl hover:bg-gray-600  duration-500'>Search</Link>
                     </div>
 
