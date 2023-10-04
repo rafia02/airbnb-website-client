@@ -15,17 +15,43 @@ import { PiHouseLineBold } from "react-icons/pi";
 const FilterModal = () => {
     const { minValue, setMinValue, maxValue, setMaxValue, beds, setBeds, rooms, setRooms, baths, setBaths } = useContext(context)
     const [range, setRange] = useState("");
-    
+
     const [boxes, setBoxes] = useState([
         { id: 1, selected: false, title: "House", img: house, },
         { id: 2, selected: false, title: "Apartment", img: apartment },
         { id: 3, selected: false, title: "Guesthouse", img: guest }
-    ]);
-    // const [minValue, setMinValue] = useState(0);
-    // const [maxValue, setMaxValue] = useState(500);
-    // const [beds, setBeds] = useState("");
-    // const [rooms, setRooms] = useState("");
-    // const [baths, setBaths] = useState("");
+    ])
+
+
+    const [bath, setBath] = useState([
+        { id: 1, option: "Any", selected: false },
+        { id: 2, option: "1", selected: false },
+        { id: 3, option: "2", selected: false },
+        { id: 4, option: "3", selected: false },
+        { id: 5, option: "4", selected: false },
+        { id: 6, option: "5", selected: false },
+        { id: 7, option: "6", selected: false },
+    ])
+    const [room, setRoom] = useState([
+        { id: 1, option: "Any", selected: false },
+        { id: 2, option: "1", selected: false },
+        { id: 3, option: "2", selected: false },
+        { id: 4, option: "3", selected: false },
+        { id: 5, option: "4", selected: false },
+        { id: 6, option: "5", selected: false },
+        { id: 7, option: "6", selected: false },
+    ])
+    const [bed, setBed] = useState([
+        { id: 1, option: "Any", selected: false },
+        { id: 2, option: "1", selected: false },
+        { id: 3, option: "2", selected: false },
+        { id: 4, option: "3", selected: false },
+        { id: 5, option: "4", selected: false },
+        { id: 6, option: "5", selected: false },
+        { id: 7, option: "6", selected: false },
+    ])
+
+
 
     const handleRangeChange = (newRange) => {
         setRange(newRange);
@@ -34,27 +60,52 @@ const FilterModal = () => {
     }
 
     const def = maxValue - minValue
-    console.log(def)
-
-    const num = ["Any", 1, 2, 3, 4, 5, 6]
-
-
-    console.log(rooms, beds, baths)
 
 
 
-    
+
+
+
+
+
+
+
 
 
     const toggleBoxSelection = (id) => {
+        console.log(id)
         setBoxes((prevBoxes) =>
             prevBoxes.map((box) =>
                 box.id === id ? { ...box, selected: !box.selected } : box
             )
         );
-    };
+    }
 
 
+    const togglehangle = (id, set) => {
+        set((prevBoxes) =>
+            prevBoxes.map((val) =>
+                val.id === id ? { ...val, selected: !val.selected } : { ...val, selected: false }
+            )
+        )
+    }
+    // const toggleBed = (id, set) => {
+    //     set((prevBoxes) =>
+    //         prevBoxes.map((val) =>
+    //             val.id === id ? { ...val, selected: !val.selected } : { ...val, selected: false }
+    //         )
+    //     )
+    // }
+    // const toggleBath = (id, set) => {
+    //     set((prevBoxes) =>
+    //         prevBoxes.map((val) =>
+    //             val.id === id ? { ...val, selected: !val.selected } : { ...val, selected: false }
+    //         )
+    //     )
+    // }
+
+
+    console.log(baths)
     return (
         <div>
 
@@ -107,17 +158,15 @@ const FilterModal = () => {
 
 
                                 {
-                                    num.map(i => <button onClick={() => setRooms(i)} className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">{i}</button>)
+                                    room.map(b =>
+                                        <div
+                                            className={` py-2 px-5 rounded-2xl border-gray-500  border hover:border-gray-500 duration-500 cursor-pointer ${b.selected ? 'bg-black' : 'bg-white'}`}
+                                            onClick={() => togglehangle(b.id, setRoom, setRooms(b.option))}
+
+                                        >
+                                            <p className={`${b.selected ? 'text-white ' : 'text-black'}`}>{b.option} </p>
+                                        </div>)
                                 }
-
-
-                                {/* <button className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-6 rounded-2xl">Any</button>
-                                <button className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">1</button>
-                                <button className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">2</button>
-                                <button className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">3</button>
-                                <button className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">4</button>
-                                <button className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">5</button>
-                                <button className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">+6</button> */}
                             </div>
                         </div>
 
@@ -126,7 +175,14 @@ const FilterModal = () => {
                             <p className="pt-8 text-lg font-semibold">Beds</p>
                             <div className='flex gap-3 mt-5'>
                                 {
-                                    num.map(i => <button onClick={() => setBeds(i)} className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">{i}</button>)
+                                    bed.map(b =>
+                                        <div
+                                            className={` py-2 px-5 rounded-2xl border-gray-500  border hover:border-gray-500 duration-500 cursor-pointer ${b.selected ? 'bg-black' : 'bg-white'}`}
+                                            onClick={() => togglehangle(b.id, setBed, setBeds(b.option))}
+
+                                        >
+                                            <p className={`${b.selected ? 'text-white ' : 'text-black'}`}>{b.option} </p>
+                                        </div>)
                                 }
                             </div>
                         </div>
@@ -135,7 +191,14 @@ const FilterModal = () => {
                             <p className="pt-8 text-lg font-semibold">Bathrooms</p>
                             <div className='flex gap-3 mt-5'>
                                 {
-                                    num.map(i => <button onClick={() => setBaths(i)} className="border border-gray-400 hover:border-gray-600 focus:bg-black focus:text-white text-sm py-2 px-5 rounded-2xl">{i}</button>
+                                    bath.map(b =>
+                                        <div
+                                            className={` py-2 px-5 rounded-2xl border-gray-500  border hover:border-gray-500 duration-500 cursor-pointer ${b.selected ? 'bg-black' : 'bg-white'}`}
+                                            onClick={() => togglehangle(b.id, setBath, setBaths(b.option))}
+
+                                        >
+                                            <p className={`${b.selected ? 'text-white ' : 'text-black'}`}>{b.option} </p>
+                                        </div>
                                     )
                                 }
                             </div>
