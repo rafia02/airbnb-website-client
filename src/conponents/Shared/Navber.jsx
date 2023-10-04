@@ -9,8 +9,8 @@ import { context } from '../../Context/AuthContex';
 
 const manueBar = <>
     <Link to="/" className='px-1  mb-2 md:mb-0 mr-2  text-lg'>Stays</Link>
-    <Link to="/hotels" className='px-1  mr-2 mb-2 md:mb-0   text-lg'>Experiences</Link>
-    <Link to="/analysis" className='px-1   mb-2 md:mb-0   text-lg'>Online Experiences</Link>
+    <Link to="/" className='px-1  mr-2 mb-2 md:mb-0   text-lg'>Experiences</Link>
+    <Link to="/" className='px-1   mb-2 md:mb-0   text-lg'>Online Experiences</Link>
 
 
 </>
@@ -38,9 +38,9 @@ const navigete = useNavigate()
 
                         </ul>
                     </div>
-                    <div className='h-[32px] w-[100px]'>
+                    <Link to="/" className='h-[32px] w-[100px]'>
                         <img className='h-full w-full' src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSqCcR9xjgPrA-QlIJfm7X7YS5FUvjph_FvBSBtP7oAvc3KbCLmD69P_VyJIJT4gCFEUA&usqp=CAU" alt="" />
-                    </div>
+                    </Link>
                 </div>
 
                 <div onClick={handleShow} className="navbar-center hidden lg:flex">

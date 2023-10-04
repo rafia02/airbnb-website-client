@@ -6,7 +6,7 @@ import FilterModal from './FilterModal'
 
 const Home = () => {
   return (
-    <div className='pt-10 '>
+    <div className='pt-7 '>
      <Catagories></Catagories>
      <Hotels></Hotels>
      <FilterModal></FilterModal>
