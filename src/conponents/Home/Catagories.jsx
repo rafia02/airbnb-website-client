@@ -13,7 +13,7 @@ const Catagories = () => {
     const { data: catagories = [], refetch } = useQuery({
         queryKey: ['catagories'],
         queryFn: async () => {
-            const res = await fetch('../../../catagories.json')
+            const res = await fetch('https://sr-bnb-hotel-booking-server.vercel.app/catagories2')
             const data = await res.json()
             return data
         }
