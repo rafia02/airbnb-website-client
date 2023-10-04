@@ -27,31 +27,28 @@ const FilterModal = () => {
 
 
     const [bath, setBath] = useState([
-        { id: 1, option: "Any", selected: false },
-        { id: 2, option: "1", selected: false },
-        { id: 3, option: "2", selected: false },
-        { id: 4, option: "3", selected: false },
-        { id: 5, option: "4", selected: false },
-        { id: 6, option: "5", selected: false },
-        { id: 7, option: "6", selected: false },
+        { id: 1, option: "1", selected: false },
+        { id: 2, option: "2", selected: false },
+        { id: 3, option: "3", selected: false },
+        { id: 4, option: "4", selected: false },
+        { id: 5, option: "5", selected: false },
+        { id: 6, option: "6", selected: false },
     ])
     const [room, setRoom] = useState([
-        { id: 1, option: "Any", selected: false },
-        { id: 2, option: "1", selected: false },
-        { id: 3, option: "2", selected: false },
-        { id: 4, option: "3", selected: false },
-        { id: 5, option: "4", selected: false },
-        { id: 6, option: "5", selected: false },
-        { id: 7, option: "6", selected: false },
+        { id: 1, option: "1", selected: false },
+        { id: 2, option: "2", selected: false },
+        { id: 3, option: "3", selected: false },
+        { id: 4, option: "4", selected: false },
+        { id: 5, option: "5", selected: false },
+        { id: 6, option: "6", selected: false },
     ])
     const [bed, setBed] = useState([
-        { id: 1, option: "Any", selected: false },
-        { id: 2, option: "1", selected: false },
-        { id: 3, option: "2", selected: false },
-        { id: 4, option: "3", selected: false },
-        { id: 5, option: "4", selected: false },
-        { id: 6, option: "5", selected: false },
-        { id: 7, option: "6", selected: false },
+        { id: 1, option: "1", selected: false },
+        { id: 2, option: "2", selected: false },
+        { id: 3, option: "3", selected: false },
+        { id: 4, option: "4", selected: false },
+        { id: 5, option: "5", selected: false },
+        { id: 6, option: "6", selected: false },
     ])
 
 
