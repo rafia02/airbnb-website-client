@@ -3,11 +3,24 @@ import MultiRangeSlider from "multi-range-slider-react";
 import { Link, NavLink } from 'react-router-dom';
 import "../../App.css"
 import { context } from '../../Context/AuthContex';
+import Box from '../Shared/Box';
+
+import house from "../../images/house.png"
+import apartment from "../../images/apartment.png"
+import guest from "../../images/guest.png"
+
+import { PiHouseLineBold } from "react-icons/pi";
 
 
 const FilterModal = () => {
     const { minValue, setMinValue, maxValue, setMaxValue, beds, setBeds, rooms, setRooms, baths, setBaths } = useContext(context)
     const [range, setRange] = useState("");
+    
+    const [boxes, setBoxes] = useState([
+        { id: 1, selected: false, title: "House", img: house, },
+        { id: 2, selected: false, title: "Apartment", img: apartment },
+        { id: 3, selected: false, title: "Guesthouse", img: guest }
+    ]);
     // const [minValue, setMinValue] = useState(0);
     // const [maxValue, setMaxValue] = useState(500);
     // const [beds, setBeds] = useState("");
@@ -29,12 +42,25 @@ const FilterModal = () => {
     console.log(rooms, beds, baths)
 
 
+
+    
+
+
+    const toggleBoxSelection = (id) => {
+        setBoxes((prevBoxes) =>
+            prevBoxes.map((box) =>
+                box.id === id ? { ...box, selected: !box.selected } : box
+            )
+        );
+    };
+
+
     return (
         <div>
 
 
             <dialog id="my_modal_2" className="modal ">
-                <div className="modal-box  text-gray-600">
+                <div className="modal-box  text-gray-700">
                     <div>
                         <h3 className="font-bold text-2xl">Type of place</h3>
                         <p className="pt-1 text-sm">A room in a home, plus access to shared spaces.</p>
@@ -116,8 +142,29 @@ const FilterModal = () => {
                         </div>
                     </div>
 
+
+                    <div>
+                        <h3 className="font-bold mt-16 mb-8 text-2xl">Property type</h3>
+                        <div className="grid gap-5 grid-cols-3">
+                            {boxes.map((box) => <div
+                                className={` px-5 py-3  border-2 border-gray-200 hover:border-gray-500 duration-500 rounded-lg cursor-pointer ${box.selected ? 'bg-gray-100 border-2 border-gray-500' : 'bg-white'
+                                    }`}
+                                onClick={() => toggleBoxSelection(box.id)}
+
+                            >
+                                <div className='text-center'>
+                                    <img className='h-7 mb-3 w-7 mx-auto mt-3' src={box.img} alt="" />
+                                    <p className='font-semibold'>{box.title}</p>
+                                </div>
+                            </div>
+                            )}
+                        </div>
+                    </div>
+
+
+
                     <div className='text-end mt-8 '>
-                        <Link to="/filter/hotel"  className='px-12 py-3 text-xl bg-black text-white font-bold rounded-xl hover:bg-gray-600  duration-500'>Search</Link>
+                        <Link to="/filter/hotel" className='px-12 py-3 text-xl bg-black text-white font-bold rounded-xl hover:bg-gray-600  duration-500'>Search</Link>
                     </div>
 
                 </div>

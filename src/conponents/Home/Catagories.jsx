@@ -64,10 +64,10 @@ const Catagories = () => {
                 <Carousel responsive={responsive}>
 
                     {
-                        catagories.map(e => <div onClick={() => handleCatagory(e.catagory)} key={e.catagory}> <div>
+                        catagories.map(e => <button className='focus:border-b-2 focus:border-gray-700 pb-2' onClick={() => handleCatagory(e.catagory)} key={e.catagory}> <div>
                             <img className='h-8 ' src={e.img} alt="" />
                             <p className='text-start text-sm pt-1'>{e.catagory}</p>
-                        </div></div>)
+                        </div></button>)
                     }
 
 
